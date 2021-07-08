@@ -1,0 +1,50 @@
+﻿
+@model MVC_Validations.Models.clientModel
+
+    <div>
+        @*Loosely Bind Data Validation*@
+        @using (Html.BeginForm("SubmitForm", "Home"))
+        {
+            @Html.TextBox("Name")
+            @Html.ValidationMessage("Name")<br /><br />
+
+            @Html.TextBox("Email")
+            @Html.ValidationMessage("Email")<br /><br />
+
+            @Html.TextBox("Age")
+            @Html.ValidationMessage("Age")<br /><br />
+
+            <input type="submit" name="Submit" value="Save Data" \ />
+        }
+    </div>
+
+    <div>
+        @*Strong Bind Data Validation*@
+        @using (Html.BeginForm("SubmitForm", "Home", FormMethod.Post))
+        {
+            @Html.TextBoxFor(x => x.Name)
+            @Html.ValidationMessageFor(x => x.Name)<br /><br />
+
+            @Html.TextBoxFor(x => x.Email)
+            @Html.ValidationMessageFor(x => x.Email)<br /><br />
+
+            @Html.TextBoxFor(x => x.Age)
+            @Html.ValidationMessageFor(x => x.Age)<br /><br />
+
+            <input type="submit" name="Submit" value="Save Data" \ />
+        }
+    </div>
+
+    <div>
+
+        @using (Html.BeginForm("SubmitForm", "Home", FormMethod.Post))
+        {
+            @Html.TextBoxFor(x => x.Name)<br /><br />
+            @Html.TextBoxFor(x => x.Email)<br /><br />
+            @Html.TextBoxFor(x => x.Age)<br /><br />
+
+            @* Display all error message *@
+            @Html.ValidationSummary()
+            <input type="submit" name="Submit" value="Save Data" \ />
+        }
+    </div>

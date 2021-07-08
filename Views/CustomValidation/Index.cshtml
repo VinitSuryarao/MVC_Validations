@@ -1,0 +1,16 @@
+﻿
+@model MVC_Validations.Models.brokerModel
+
+    <div>
+        @* Custom Validation*@
+        @using (Html.BeginForm("SubmitForm", "CustomValidation"))
+        {
+            @Html.TextBox("Name")
+            @Html.ValidationMessage("Name")<br /><br />
+
+            @Html.TextBox("Message")
+            @Html.ValidationMessage("Message")<br /><br />
+
+            <input type="submit" name="Submit" value="Save Data" \ />
+        }
+    </div>
